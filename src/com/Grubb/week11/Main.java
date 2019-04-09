@@ -24,8 +24,8 @@ public class Main {
 
         System.out.println("Please choose an option:\n" +
                 "(1) Add a task.\n" +
-                "(2) Remove a task.\n" +
-                "(3) Update a task.\n" +
+                "(2) list all task.\n" +
+                "(3) list all task.\n" +
                 "(4) List all tasks.\n" +
                 "(0) Exit.");
         whichTask = scan.nextLine();
@@ -38,16 +38,19 @@ public class Main {
                 break;
 
             case "2":
+                list.listTask();
                 // list the task then removes the right task
 
                 break;
 
             case "3":
+                list.listTask();
                 //list the task then remove the task
 
                 break;
 
             case "4":
+                list.listTask();
                 //list task
 
                 break;

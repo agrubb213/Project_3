@@ -24,10 +24,11 @@ public class Task implements Comparable<Task>{
      * @param taskDes the description of the object
      * @param taskPri the priority of the
      */
-    public Task(String taskName, String taskDes, int taskPri) {
+    public Task(String taskName, String taskDes, int taskPri, int id) {
         this.taskName = taskName;
         this.taskDes = taskDes;
         this.taskPri = taskPri;
+        this.id = id;
     }
 
     /**
@@ -78,8 +79,8 @@ public class Task implements Comparable<Task>{
     public int compareTo(Task o) {
         if(taskPri != o.taskPri){
             if (taskPri > o.taskPri){
-                return 1;
-            }else{return -1;}
+                return -1;
+            }else{return 1;}
         }
         return taskName.compareTo(o.taskName);
     }

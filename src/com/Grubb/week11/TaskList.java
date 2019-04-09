@@ -57,12 +57,12 @@ public class TaskList implements Iterable<Task> {
         }
     }
      */
-    static Scanner scan = new Scanner(System.in);
-    static ArrayList<Task> taskList = new ArrayList<>();
+    Scanner scan = new Scanner(System.in);
+    ArrayList<Task> taskList = new ArrayList<>();
+    ArrayList<Task> taskList2 = new ArrayList<>();
+    int id= 1;
 
-
-
-    static void addTask() {
+    void addTask() {
         // makes and adds a task to a list
         int taskPri = 0;
         boolean validInput = false;
@@ -92,10 +92,12 @@ public class TaskList implements Iterable<Task> {
             }
         }
         // adding the new task to a list
-        Task newTask = new Task(askTask, taskDes, taskPri);
+        Task newTask = new Task(askTask, taskDes, taskPri, id);
+        id++;
         taskList.add(newTask);
     }
-    static void removeTask() {
+
+    void removeTask() {
         // removes a task from the list
         int checkTask = 0;
         int taskId = 0;
@@ -114,12 +116,12 @@ public class TaskList implements Iterable<Task> {
                 System.out.println("invalid input try again!");
             }
         }
-
-        for (Task getTask : taskList) {
+        taskList2 = taskList;
+        for (Task getTask : taskList2) {
             // run all elements in task list
             if (taskId == getTask.getId()) {
                 taskList.remove(getTask);
-            } else if (checkTask > taskList.size()) {
+            } else if (checkTask > taskList2.size()) {
                 // if the for loop goes through more elements then the size of the list then tell the user it was not a valid input
                 System.out.println("Input a valid task!");
                 removeTask();
@@ -127,8 +129,6 @@ public class TaskList implements Iterable<Task> {
             checkTask++;
         }
     }
-
-
 
     @Override
     public Iterator<Task> iterator() {
